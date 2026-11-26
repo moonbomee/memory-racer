@@ -2,6 +2,7 @@ module lcd_text (
     input  wire [4:0] pos,
     input  wire [3:0] screen,
     input  wire       blink,
+    input  wire [2:0] dip_sel,
     input  wire [1:0] mode,
     input  wire [1:0] level,
     input  wire       bgm_en,
@@ -63,7 +64,15 @@ module lcd_text (
     always @(*) begin
         char_code = SP;
         case (screen)
-            4'd0: char_code = r ? S("3RANK 4SND 5LVL ", c) : S(" 1START   2MODE ", c);
+            4'd0: begin
+                char_code = r ? S("3RANK 4SND 5LVL ", c) : S(" 1START   2MODE ", c);
+                if (!blink && ((!r && dip_sel == 3'd1 && c >= 1  && c <= 6)  ||
+                               (!r && dip_sel == 3'd2 && c >= 10 && c <= 14) ||
+                               ( r && dip_sel == 3'd3 && c <= 4)             ||
+                               ( r && dip_sel == 3'd4 && c >= 6  && c <= 9)  ||
+                               ( r && dip_sel == 3'd5 && c >= 11 && c <= 14)))
+                    char_code = SP;
+            end
 
             4'd1: begin
                 if (!r) char_code = S("MODE     #:BACK ", c);
@@ -76,7 +85,13 @@ module lcd_text (
                 end
             end
 
-            4'd2: char_code = r ? S("1TIME 2LIFE 3SIG", c) : S("RANKING  #:BACK ", c);
+            4'd2: begin
+                char_code = r ? S("1TIME 2LIFE 3SIG", c) : S("RANKING  #:BACK ", c);
+                if (!blink && r && ((dip_sel == 3'd1 && c <= 4) ||
+                                    (dip_sel == 3'd2 && c >= 6 && c <= 10) ||
+                                    (dip_sel == 3'd3 && c >= 12)))
+                    char_code = SP;
+            end
 
             4'd3: begin
                 if (!r) begin
@@ -91,8 +106,11 @@ module lcd_text (
             end
 
             4'd4: begin
-                if (!r) char_code = S("1BGM 2SFX #BACK ", c);
-                else if (c >= 4 && c <= 6)   char_code = bgm_en ? S("    ON          ", c) : S("    OFF         ", c);
+                if (!r) begin
+                    char_code = S("1BGM 2SFX #BACK ", c);
+                    if (!blink && ((dip_sel == 3'd1 && c <= 3) || (dip_sel == 3'd2 && c >= 5 && c <= 8)))
+                        char_code = SP;
+                end else if (c >= 4 && c <= 6)   char_code = bgm_en ? S("    ON          ", c) : S("    OFF         ", c);
                 else if (c >= 12 && c <= 14) char_code = sfx_en ? S("            ON  ", c) : S("            OFF ", c);
                 else                         char_code = S("BGM:    SFX:    ", c);
             end

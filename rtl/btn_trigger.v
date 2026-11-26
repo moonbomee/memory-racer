@@ -5,9 +5,11 @@ module btn_trigger #(
     input  wire         rst,
     input  wire         tick_10ms,
     input  wire [N-1:0] btn_in,
-    output reg  [N-1:0] pulse
+    output reg  [N-1:0] pulse,
+    output wire [N-1:0] level
 );
     reg [N-1:0] sync1, sync2, stable, prev;
+    assign level = stable;
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin

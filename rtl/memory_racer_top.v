@@ -43,7 +43,20 @@ module memory_racer_top #(
     end
 
     wire [11:0] kp;
-    btn_trigger #(.N(12)) u_keys (.clk(clk), .rst(rst), .tick_10ms(tick_10ms), .btn_in(key), .pulse(kp));
+    wire [11:0] kl;
+    btn_trigger #(.N(12)) u_keys (.clk(clk), .rst(rst), .tick_10ms(tick_10ms), .btn_in(key), .pulse(kp), .level(kl));
+
+    reg [4:0] held_no;
+    integer   hk;
+    always @(*) begin
+        held_no = 5'd0;
+        for (hk = 11; hk >= 0; hk = hk - 1)
+            if (kl[hk]) held_no = hk + 1;
+    end
+    wire [39:0] menu_seg8 = (held_no == 0) ? {8{5'd10}} :
+                            {(held_no >= 10) ? held_no - 5'd10 : held_no,
+                             (held_no >= 10) ? 5'd1 : 5'd10,
+                             {6{5'd10}}};
 
     wire       k_star   = kp[9];
     wire       k_hash   = kp[11];
@@ -121,7 +134,7 @@ module memory_racer_top #(
     wire [4:0] lcd_pos;
     wire [7:0] lcd_char;
     lcd_text u_text (
-        .pos(lcd_pos), .screen(in_game ? game_screen : menu_screen), .blink(blink),
+        .pos(lcd_pos), .screen(in_game ? game_screen : menu_screen), .blink(blink), .dip_sel(dip_val),
         .mode(mode), .level(level), .bgm_en(bgm_en), .sfx_en(sfx_en),
         .rv_mode(rv_mode), .rv0(rv0), .rv1(rv1), .rv2(rv2),
         .ready_step(ready_step),
@@ -139,7 +152,7 @@ module memory_racer_top #(
 
     seg8_scan u_seg8 (
         .clk(clk), .rst(rst), .tick_1ms(tick_1ms),
-        .codes(in_game ? g_seg8 : {8{5'd10}}),
+        .codes(in_game ? g_seg8 : menu_seg8),
         .seg_data(seg8_data), .seg_com(seg8_com));
 
     assign led    = in_game ? g_led : 8'h00;
