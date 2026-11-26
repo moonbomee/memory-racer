@@ -1,0 +1,405 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
+| Date         : Thu Nov 26 19:15:25 2026
+| Host         : LAPTOP-U4A4OMG8 running 64-bit major release  (build 9200)
+| Command      : report_methodology -file memory_racer_top_methodology_drc_routed.rpt -pb memory_racer_top_methodology_drc_routed.pb -rpx memory_racer_top_methodology_drc_routed.rpx
+| Design       : memory_racer_top
+| Device       : xc7s75fgga484-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 74
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay | 74         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on dip[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on dip[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on dip[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on dip[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on dip[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on dip[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on dip[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on dip[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on eep_sda relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on key[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on key[10] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An input delay is missing on key[11] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An input delay is missing on key[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An input delay is missing on key[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An input delay is missing on key[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An input delay is missing on key[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An input delay is missing on key[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An input delay is missing on key[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An input delay is missing on key[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An input delay is missing on key[8] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An input delay is missing on key[9] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on eep_scl relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on fled_g[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An output delay is missing on fled_g[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An output delay is missing on fled_g[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An output delay is missing on fled_g[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#27 Warning
+Missing input or output delay  
+An output delay is missing on fled_r[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#28 Warning
+Missing input or output delay  
+An output delay is missing on fled_r[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#29 Warning
+Missing input or output delay  
+An output delay is missing on fled_r[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#30 Warning
+Missing input or output delay  
+An output delay is missing on fled_r[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#32 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#33 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#34 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#35 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#36 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An output delay is missing on lcd_d[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#39 Warning
+Missing input or output delay  
+An output delay is missing on lcd_e relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#40 Warning
+Missing input or output delay  
+An output delay is missing on lcd_rs relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#41 Warning
+Missing input or output delay  
+An output delay is missing on led[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#42 Warning
+Missing input or output delay  
+An output delay is missing on led[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#43 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#44 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#45 Warning
+Missing input or output delay  
+An output delay is missing on led[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#46 Warning
+Missing input or output delay  
+An output delay is missing on led[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#47 Warning
+Missing input or output delay  
+An output delay is missing on led[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#48 Warning
+Missing input or output delay  
+An output delay is missing on led[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#49 Warning
+Missing input or output delay  
+An output delay is missing on piezo relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#50 Warning
+Missing input or output delay  
+An output delay is missing on seg1[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#51 Warning
+Missing input or output delay  
+An output delay is missing on seg1[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#52 Warning
+Missing input or output delay  
+An output delay is missing on seg1[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#53 Warning
+Missing input or output delay  
+An output delay is missing on seg1[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#54 Warning
+Missing input or output delay  
+An output delay is missing on seg1[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#55 Warning
+Missing input or output delay  
+An output delay is missing on seg1[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#56 Warning
+Missing input or output delay  
+An output delay is missing on seg1[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#57 Warning
+Missing input or output delay  
+An output delay is missing on seg1[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#58 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#59 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#60 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#61 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#62 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#63 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#64 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#65 Warning
+Missing input or output delay  
+An output delay is missing on seg8_com[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#66 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[0] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#67 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[1] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#68 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[2] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#69 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[3] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#70 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[4] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#71 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[5] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#72 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[6] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#73 Warning
+Missing input or output delay  
+An output delay is missing on seg8_data[7] relative to clock(s) sys_clk
+Related violations: <none>
+
+TIMING-18#74 Warning
+Missing input or output delay  
+An output delay is missing on servo relative to clock(s) sys_clk
+Related violations: <none>
+
+
