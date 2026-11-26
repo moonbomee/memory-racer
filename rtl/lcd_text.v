@@ -59,6 +59,16 @@ module lcd_text (
         endcase
     endfunction
 
+    function [7:0] LEVEL_NAME;
+        input [1:0] l;
+        input [1:0] k;
+        case (l)
+            2'd0:    LEVEL_NAME = S("EASY            ", {2'b00, k});
+            2'd1:    LEVEL_NAME = S("MID             ", {2'b00, k});
+            default: LEVEL_NAME = S("HARD            ", {2'b00, k});
+        endcase
+    endfunction
+
     wire [7:0] lane_ch = lane ? CG_LANE_B : CG_LANE_A;
 
     always @(*) begin
@@ -75,12 +85,14 @@ module lcd_text (
             end
 
             4'd1: begin
-                if (!r) char_code = S("MODE     #:BACK ", c);
-                else begin
+                if (!r) begin
+                    if (c >= 5 && c <= 8) char_code = MODE_NAME(mode, c[1:0] - 2'd1);
+                    else                  char_code = S("MODE:     #:BACK", c);
+                end else begin
                     char_code = S("1TIME 2LIFE 3SIG", c);
-                    if (!blink && ((mode == 2'd0 && c <= 4) ||
-                                   (mode == 2'd1 && c >= 6 && c <= 10) ||
-                                   (mode == 2'd2 && c >= 12)))
+                    if (!blink && ((dip_sel == 3'd1 && c <= 4) ||
+                                   (dip_sel == 3'd2 && c >= 6 && c <= 10) ||
+                                   (dip_sel == 3'd3 && c >= 12)))
                         char_code = SP;
                 end
             end
@@ -116,12 +128,14 @@ module lcd_text (
             end
 
             4'd5: begin
-                if (!r) char_code = S("LEVEL    #:BACK ", c);
-                else begin
+                if (!r) begin
+                    if (c >= 3 && c <= 6) char_code = LEVEL_NAME(level, c[1:0] - 2'd3);
+                    else                  char_code = S("LV:       #:BACK", c);
+                end else begin
                     char_code = S("1EASY 2MID 3HARD", c);
-                    if (!blink && ((level == 2'd0 && c <= 4) ||
-                                   (level == 2'd1 && c >= 6 && c <= 9) ||
-                                   (level == 2'd2 && c >= 11)))
+                    if (!blink && ((dip_sel == 3'd1 && c <= 4) ||
+                                   (dip_sel == 3'd2 && c >= 6 && c <= 9) ||
+                                   (dip_sel == 3'd3 && c >= 11)))
                         char_code = SP;
                 end
             end

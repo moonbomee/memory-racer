@@ -76,7 +76,7 @@ module game_fsm (
     wire [7:0] q_plus2  = q + 8'd2;
     wire [3:0] len_of_q = (q >= 8'd10) ? 4'd8 : 4'd2 + q_plus2[4:1];
 
-    wire playing = (st >= G_GEN && st <= G_FEED);
+    wire playing = (st >= G_GEN && st <= G_INPUT);
     wire time_up = (mode == 2'd0) && (time_left == 0);
 
     always @(posedge clk or posedge rst) begin
@@ -121,7 +121,7 @@ module game_fsm (
                     if (gsub == 3'd7) begin
                         pd[gi] <= rnd[7:0] % 10;
                         if (gi == 3'd7) begin
-                            rev <= (mode == 2'd2) ? rnd[15] : 1'b0;
+                            rev <= (mode == 2'd2) ? (rnd[15:14] == 2'b11) : 1'b0;
                             st <= G_CUE; t <= 0;
                         end
                         gi <= gi + 1'b1;
@@ -188,7 +188,8 @@ module game_fsm (
                 end
 
                 G_FEED: if (tick_10ms) begin
-                    if (t == 8'd79) begin
+                    if (!last_ok && anim_busy) t <= 0;
+                    else if (t == (last_ok ? 8'd119 : 8'd59)) begin
                         t <= 0;
                         if (mode == 2'd0 && time_left == 0) begin
                             st <= G_ENDFIN; finish_evt <= 1'b1; sfx_go <= 1'b1; sfx_id <= SFX_FINISH; res_finish <= 1'b1;
